@@ -1,0 +1,34 @@
+citoyen
+  nom complet
+  adresse
+  coord_geo
+
+don
+  citoyen_id
+  montant
+  annee
+  parti_id
+
+parti
+  nom
+  annee_pouvoir_debut
+  annee_pouvoir_fin
+
+contrat
+  entreprise_id
+  parti_id
+  secteur_id
+  annee
+  montant
+
+entreprise
+  nom
+
+entreprise_citoyen
+  entreprise_id
+  citoyen_id
+  annee
+
+lobyist
+  entreprise_id
+
