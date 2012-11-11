@@ -156,3 +156,20 @@ LOGGING = {
 }
 
 ELASTICSEARCH_URL = 'http://localhost:9200/'
+
+# Tempalte tags
+TEMPLATE_TAGS = ( "biereapp.templatetags.extras", ) 
+
+UPLOAD_FOLDER = 'upload/'
+FILE_UPLOAD_PERMISSIONS = 0744
+
+MEDIA_PATHS = {
+        u'MEDIA' : MEDIA_URL,
+        u'IMAGES' : MEDIA_URL+'images/',
+        u'CSS' : MEDIA_URL+"stylesheets/",
+        u'JS' : MEDIA_URL + "javascript/",
+        u'MIME-TYPE': MEDIA_URL + "mime_type/",
+        u'UPLOAD': MEDIA_URL + UPLOAD_FOLDER
+}
+
+CACHE_BACKEND = 'file:///tmp/django_cache'
