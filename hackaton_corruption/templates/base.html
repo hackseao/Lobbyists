@@ -30,7 +30,7 @@
 
 	<div class="row">
 	    {% block main_content %}
-		<div class="eight columns">
+		<div class="eight columns" id="result_area">
 			<h3>{% block page_title%}Searching{% endblock %}</h3>
             {% block page_content %}
 			<!-- Grid Example -->
@@ -63,9 +63,9 @@
 
             <div class="search">
                 <h4></h4>
-                <form action="/">
-                    <input type="text" id="search" placeholder="Keywords" name="keyword" />
-                    <input type="submit" class="button" name="search" value="Query" />
+                <form id="search" action="/search">
+                    <input type="text" id="q" placeholder="Keywords" name="keyword" />
+                    <input type="submit" id="submit" class="button" name="search" value="Query" />
                 </form>
             </div>
 			<h4>Other Resources</h4>
@@ -76,48 +76,51 @@
 	</div>
     
 	<!-- Included JS Files (Uncompressed) -->
-	<script src="javascripts/foundation/jquery.js"></script>
+	<script src="/assets/javascripts/foundation/jquery.js"></script>
 	
-	<script src="javascripts/foundation/jquery.placeholder.js"></script>
+	<script src="/assets/javascripts/foundation/jquery.placeholder.js"></script>
 	
-	<script src="javascripts/foundation/jquery.foundation.tooltips.js"></script>
+	<script src="/assets/javascripts/foundation/jquery.foundation.tooltips.js"></script>
 	
-	<script src="javascripts/foundation/jquery.foundation.magellan.js"></script>
+	<script src="/assets/javascripts/foundation/jquery.foundation.magellan.js"></script>
 	
-	<script src="javascripts/foundation/jquery.foundation.mediaQueryToggle.js"></script>
+	<script src="/assets/javascripts/foundation/jquery.foundation.mediaQueryToggle.js"></script>
 	
-	<script src="javascripts/foundation/jquery.foundation.accordion.js"></script>
+	<script src="/assets/javascripts/foundation/jquery.foundation.accordion.js"></script>
 	
-	<script src="javascripts/foundation/jquery.foundation.forms.js"></script>
+	<script src="/assets/javascripts/foundation/jquery.foundation.forms.js"></script>
 	
-	<script src="javascripts/foundation/jquery.foundation.topbar.js"></script>
+	<script src="/assets/javascripts/foundation/jquery.foundation.topbar.js"></script>
 	
-	<script src="javascripts/foundation/jquery.cookie.js"></script>
+	<script src="/assets/javascripts/foundation/jquery.cookie.js"></script>
 	
-	<script src="javascripts/foundation/jquery.event.move.js"></script>
+	<script src="/assets/javascripts/foundation/jquery.event.move.js"></script>
 	
-	<script src="javascripts/foundation/jquery.foundation.buttons.js"></script>
+	<script src="/assets/javascripts/foundation/jquery.foundation.buttons.js"></script>
 	
-	<script src="javascripts/foundation/jquery.foundation.joyride.js"></script>
+	<script src="/assets/javascripts/foundation/jquery.foundation.joyride.js"></script>
 	
-	<script src="javascripts/foundation/jquery.foundation.navigation.js"></script>
+	<script src="/assets/javascripts/foundation/jquery.foundation.navigation.js"></script>
 	
-	<script src="javascripts/foundation/jquery.foundation.alerts.js"></script>
+	<script src="/assets/javascripts/foundation/jquery.foundation.alerts.js"></script>
 	
-	<script src="javascripts/foundation/jquery.foundation.tabs.js"></script>
+	<script src="/assets/javascripts/foundation/jquery.foundation.tabs.js"></script>
 	
-	<script src="javascripts/foundation/jquery.foundation.orbit.js"></script>
+	<script src="/assets/javascripts/foundation/jquery.foundation.orbit.js"></script>
 	
-	<script src="javascripts/foundation/jquery.foundation.reveal.js"></script>
+	<script src="/assets/javascripts/foundation/jquery.foundation.reveal.js"></script>
 	
-	<script src="javascripts/foundation/jquery.event.swipe.js"></script>
+	<script src="/assets/javascripts/foundation/jquery.event.swipe.js"></script>
 	
-	<script src="javascripts/foundation/jquery.foundation.clearing.js"></script>
+	<script src="/assets/javascripts/foundation/jquery.foundation.clearing.js"></script>
 	
 
   <!-- Application Javascript, safe to override -->
-  <script src="javascripts/foundation/app.js"></script>
+  <script src="/assets/javascripts/foundation/app.js"></script>
   <!-- External unsafe dependencies -->
   <script src="http://d3js.org/d3.v2.js"></script>
+  <!-- Application Javascript, safe to override -->  
+  <script src="/assets/javascripts/hackaton.js"></script>
+  
 </body>
 </html>
