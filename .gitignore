@@ -1,3 +1,7 @@
 .DS_Store
 *.pyc
 settings.py
+scrappers/don_scraper/lib
+scrappers/don_scraper/bin
+*.dia~
+.gitignore~
