@@ -42,7 +42,7 @@ $nombre_iterations = ceil($count / 10000);
 
 for ($k = 0; $k < $nombre_iterations; $k++) {
 	$begin = $k * 10000;
-	$query = str_replace(array('{select}', '{where}', '{limit}'), array('CompanyName, RegistryUrl', $where_clause, 'LIMIT 1000 OFFSET '.$begin), $data_url);
+	$query = str_replace(array('{select}', '{where}', '{limit}'), array('CompanyName, RegistryUrl', $where_clause, 'LIMIT 10000 OFFSET '.$begin), $data_url);
 	
 	//Récuperer les entreprises
 	$entreprises = json_decode(file_get_contents($query), true);
