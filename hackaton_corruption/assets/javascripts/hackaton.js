@@ -9,7 +9,7 @@ function search(e) {
     $.getJSON("http://localhost:9200/_search", {
         pretty: true,
         q: $('#q').val(),
-        size: 100
+        size: 1500
     }, search_response);
 
     return false;
@@ -23,14 +23,33 @@ function search_response(data, status) {
     var results = data.hits.hits;
     var row = ''; // String used to create 
     var source = false;
-    var first = true;
+    var index = '';
+    var indexes = Array();
 
     ra.html('<div id="work_area"></div>');
 
     wa = $('#work_area');
 
-    wa.addClass('panel').text('Results : ' + results.length).append('<table></table>');
+    wa.addClass('panel').text('Results : ' + results.length);
 
+    for (i = 0; i < results.length; i++) {
+        source = results[i];
+        
+            if(!indexes[source._index]){
+                indexes[source._index] = 0;
+            }
+            
+            indexes[source._index]++;
+    }
+    console.log(indexes);
+    for (var key in indexes){
+        wa.append('<p style="font-size:1.'+indexes[key] +'em">'+key+': '+indexes[key] +'</p>');
+    }
+    
+    
+}
+
+function generate_table_from_results(results){
     table = wa.find('table');
     table.append('<tr></tr>');
 
@@ -49,5 +68,4 @@ function search_response(data, status) {
             first = false;
         }
     }
-    
 }
