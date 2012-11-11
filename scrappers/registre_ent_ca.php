@@ -7,9 +7,9 @@ include(__DIR__ . '/phpQuery-onefile.php');
 
 //Connection au serveur de données
 $db = new PDO(
-    'mysql:host=66.116.150.171;dbname=enewe10_hk',
-    'enewe10_hack',
-    'Hack0ns',
+    'mysql:host=localhost;dbname=adar',
+    'root',
+    '',
     array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 
 //Url pour aller chercher les données
@@ -40,7 +40,7 @@ $count = $count['cnt'];
 $nombre_iterations = ceil($count / 10000);
 
 
-for ($k = 0; $k < $nombre_iterations; $k++) {
+for ($k = 3; $k < $nombre_iterations - 3; $k++) {
 	$begin = $k * 10000;
 	$query = str_replace(array('{select}', '{where}', '{limit}'), array('CompanyName, RegistryUrl', $where_clause, 'LIMIT 10000 OFFSET '.$begin), $data_url);
 	
