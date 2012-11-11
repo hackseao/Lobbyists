@@ -1,0 +1,59 @@
+curl -XPUT 'localhost:9200/_river/seao/_meta' -d '{
+    "type" : "jdbc",
+    "jdbc" : {
+        "driver" : "com.mysql.jdbc.Driver",
+        "url" : "jdbc:mysql://66.116.150.171/enewe10_hk",
+        "user" : "enewe10_hack",
+        "password" : "Hack0ns",
+        "sql" : "select * from swdata"
+    },
+    "index" : {
+        "index" : "seao",
+        "type" : "jdbc"
+    }
+}'
+
+curl -XPUT 'localhost:9200/_river/document/_meta' -d '{
+    "type" : "jdbc",
+    "jdbc" : {
+        "driver" : "com.mysql.jdbc.Driver",
+        "url" : "jdbc:mysql://66.116.150.171/enewe10_hk",
+        "user" : "enewe10_hack",
+        "password" : "Hack0ns",
+        "sql" : "select * from document"
+    },
+    "index" : {
+        "index" : "document",
+        "type" : "jdbc"
+    }
+}'
+
+curl -XPUT 'localhost:9200/_river/my_jdbc_river/_meta' -d '{
+    "type" : "jdbc",
+    "jdbc" : {
+        "driver" : "com.mysql.jdbc.Driver",
+        "url" : "jdbc:mysql://66.116.150.171/enewe10_hk",
+        "user" : "enewe10_hack",
+        "password" : "Hack0ns",
+        "sql" : "select * from citoyen"
+    },
+    "index" : {
+        "index" : "citoyen",
+        "type" : "jdbc"
+    }
+}'
+
+curl -XPUT 'localhost:9200/_river/entreprise/_meta' -d '{
+    "type" : "jdbc",
+    "jdbc" : {
+        "driver" : "com.mysql.jdbc.Driver",
+        "url" : "jdbc:mysql://66.116.150.171/enewe10_hk",
+        "user" : "enewe10_hack",
+        "password" : "Hack0ns",
+        "sql" : "select * from entreprise"
+    },
+    "index" : {
+        "index" : "document",
+        "type" : "jdbc"
+    }
+}'
