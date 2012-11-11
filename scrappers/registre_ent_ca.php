@@ -3,7 +3,7 @@
   Permet d'aller chercher toutes les entreprises du Canada et les dirigeants de chaque entreprise
 */
 
-include('phpQuery-onefile.php');
+include(__DIR__ . '/phpQuery-onefile.php');
 
 //Connection au serveur de données
 $db = new PDO(
@@ -13,7 +13,7 @@ $db = new PDO(
     array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 
 //Url pour aller chercher les données
-$data_url = 'https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&name=ca_corps_scraper&query=select%20{select}%20from%20swdata%20{where}%20{limit}%3B';
+$data_url = 'https://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&name=ca_corps_scraper&query=select%20{select}%20from%20swdata%20{where}%20order%20by%20date_scraped%20ASC%20{limit}%3B';
 
 $sth = $db->prepare('SELECT date FROM scrapper_update WHERE url = ?');
 $scrapper_info = $sth->execute(array($data_url));
@@ -37,18 +37,25 @@ $count = reset($count);
 $count = $count['cnt'];
 
 //Nombre de query à faire pour alléger le traitement des données
-$nombre_iterations = ceil($count / 1000);
+$nombre_iterations = ceil($count / 10000);
 
 
 for ($k = 0; $k < $nombre_iterations; $k++) {
-	$begin = $k * 1000;
+	$begin = $k * 10000;
 	$query = str_replace(array('{select}', '{where}', '{limit}'), array('CompanyName, RegistryUrl', $where_clause, 'LIMIT 1000 OFFSET '.$begin), $data_url);
 	
 	//Récuperer les entreprises
 	$entreprises = json_decode(file_get_contents($query), true);
 	
 	foreach ($entreprises as $i => $entreprise) {
-		var_dump($begin + $i);
+		if (isset($entreprise['RegistryUrl']) == false) {
+			var_dump($entreprises);
+			continue 2;
+		}
+
+		var_dump(($begin + $i). ' '.$entreprise['RegistryUrl']);
+		ob_flush();
+
 		//Charger la page de l'entreprise
 		$entreprise_page = file_get_contents($entreprise['RegistryUrl']);
 		$doc = phpQuery::newDocument($entreprise_page);
