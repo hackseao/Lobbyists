@@ -66,8 +66,8 @@ for ($k = 0; $k < $nombre_iterations; $k++) {
 		$adresse = strip_tags(str_replace('<br>', ' ', $adresse));
 		
 		//Ajouter l'entreprise à notre registre
-		$sth = $db->prepare('INSERT INTO entreprise (nom, adresse) VALUES (?, ?)');		
-		$sth->execute(array($entreprise['CompanyName'], $adresse));
+		$sth = $db->prepare('INSERT INTO entreprise (nom, adresse, data_source) VALUES (?, ?, ?)');		
+		$sth->execute(array($entreprise['CompanyName'], $adresse, 'registre_ent_ca'));
 		$compagnie = $db->lastInsertId(); 
 		
 		//Trouver le node des dirigeants
@@ -75,8 +75,8 @@ for ($k = 0; $k < $nombre_iterations; $k++) {
 			$dirigeant = trim($dirigeant->nodeValue);
 
 			//Enregistrer chaque dirigeant comme citoyen
-			$sth = $db->prepare('INSERT INTO citoyen (nom) VALUES (?)');	
-			$sth->execute(array($dirigeant));
+			$sth = $db->prepare('INSERT INTO citoyen (nom, data_source) VALUES (?, ?)');	
+			$sth->execute(array($dirigeant, 'registre_ent_ca'));
 			$citoyen = $db->lastInsertId();
 
 			//Ajouter le lien entre l'entreprise et le dirigeant
