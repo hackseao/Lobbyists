@@ -54,7 +54,6 @@ for ($k = 0; $k < $nombre_iterations; $k++) {
 		}
 
 		var_dump(($begin + $i). ' '.$entreprise['RegistryUrl']);
-		ob_flush();
 
 		//Charger la page de l'entreprise
 		$entreprise_page = file_get_contents($entreprise['RegistryUrl']);
