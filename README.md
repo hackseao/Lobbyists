@@ -1,7 +1,7 @@
 hackaton_corruption
 ===================
 
-Projet contre la corruption au Québec
+Projet contre la corruption au Québec. En Django
 
 Étapes de réalisation
 ---------------------

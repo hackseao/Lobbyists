@@ -10,7 +10,7 @@
 	<!-- Set the viewport width to device width for mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<title>Welcome to Foundation</title>
+	<title>Welcome to DEI : Hackathon's own data exploration intercafe</title>
 
 	<!-- Included CSS Files -->
 	<link rel="stylesheet" href="stylesheets/app.css">
@@ -22,8 +22,8 @@
 
 	<div class="row">
 		<div class="twelve columns">
-			<h2>Welcome to Foundation</h2>
-			<p>This is version 3.2.1.</p>
+			<h2>DEI : Data Exploration Interface</h2>
+			<p>This is version 0.</p>
 			<hr />
 		</div>
 	</div>
@@ -36,40 +36,10 @@
 			<div class="row">
 				<div class="twelve columns">
 					<div class="panel">
-						<p>This is a twelve column section in a row. Each of these includes a div.panel element so you can see where the columns are - it's not required at all for the grid.</p>
+						<p>This application has a high level of instability. Please use cautiously. </p>
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="six columns">
-					<div class="panel">
-						<p>Six columns</p>
-					</div>
-				</div>
-				<div class="six columns">
-					<div class="panel">
-						<p>Six columns</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="four columns">
-					<div class="panel">
-						<p>Four columns</p>
-					</div>
-				</div>
-				<div class="four columns">
-					<div class="panel">
-						<p>Four columns</p>
-					</div>
-				</div>
-				<div class="four columns">
-					<div class="panel">
-						<p>Four columns</p>
-					</div>
-				</div>
-			</div>
-
 			<h3>Tabs</h3>
 			<dl class="tabs">
 				<dd class="active"><a href="#simple1">Simple Tab 1</a></dd>
@@ -83,33 +53,21 @@
 				<li id="simple3Tab">This is simple tab 3's content. It's, you know...okay.</li>
 			</ul>
 
-			<h3>Buttons</h3>
-
-      <div class="row">
-        <div class="six columns">
-          <p><a href="#" class="small button">Small Button</a></p>
-          <p><a href="#" class="button">Medium Button</a></p>
-          <p><a href="#" class="large button">Large Button</a></p>
-        </div>
-        <div class="six columns">
-          <p><a href="#" class="small alert button">Small Alert Button</a></p>
-          <p><a href="#" class="success button">Medium Success Button</a></p>
-          <p><a href="#" class="large secondary button">Large Secondary Button</a></p>
-        </div>
-      </div>
 		</div>
 
 		<div class="four columns">
 			<h4>Getting Started</h4>
-			<p>We're stoked you want to try Foundation! To get going, this file (index.html) includes some basic styles you can modify, play around with, or totally destroy to get going.</p>
+			<p>Search someone's name, a company or simply a controversial keyword</p>
 
+            <div class="search">
+                <h4></h4>
+                <form action="/">
+                    <input type="text" id="search" placeholder="Keywords" name="keyword" />
+                    <input type="submit" class="button" name="search" value="Query" />
+                </form>
+            </div>
 			<h4>Other Resources</h4>
-			<p>Once you've exhausted the fun in this document, you should check out:</p>
-			<ul class="disc">
-				<li><a href="http://foundation.zurb.com/docs">Foundation Documentation</a><br />Everything you need to know about using the framework.</li>
-				<li><a href="http://github.com/zurb/foundation">Foundation on Github</a><br />Latest code, issue reports, feature requests and more.</li>
-				<li><a href="http://twitter.com/foundationzurb">@foundationzurb</a><br />Ping us on Twitter if you have questions. If you build something with this we'd love to see it (and send you a totally boss sticker).</li>
-			</ul>
+			<p>This database is very limited. Please send us your suggestions of data to aggregate and we'll happily oblige.</p>
 		</div>
 	</div>
 
@@ -155,5 +113,7 @@
 
   <!-- Application Javascript, safe to override -->
   <script src="javascripts/foundation/app.js"></script>
+  <!-- External unsafe dependencies -->
+  <script src="http://d3js.org/d3.v2.js"></script>
 </body>
 </html>
