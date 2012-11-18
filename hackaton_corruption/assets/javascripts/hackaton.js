@@ -30,7 +30,7 @@ function search_response(data, status) {
 
     wa = $('#work_area');
 
-    wa.addClass('panel').text('Results : ' + results.length);
+    wa.addClass('panel').html('<h1>Results : ' + results.length+'</h1>').css('overflow', 'scroll');
 
     for (i = 0; i < results.length; i++) {
         source = results[i];
@@ -43,29 +43,42 @@ function search_response(data, status) {
     }
     console.log(indexes);
     for (var key in indexes){
-        wa.append('<p style="font-size:1.'+indexes[key] +'em">'+key+': '+indexes[key] +'</p>');
+        size = 1 +  indexes[key] * 0.01;
+        wa.append('<p class="'+key+'" style="font-size:'+ size +'em">'+key+': '+indexes[key] +'</p>');
+        wa.find('p').click(generate_table_from_results(wa, results));
     }
+    
+    wa.append('<table></table>');
     
     
 }
 
-function generate_table_from_results(results){
-    table = wa.find('table');
-    table.append('<tr></tr>');
+function generate_table_from_results(item, results){
+    return function(e){
+        var first = true;
 
-    for (i = 0; i < results.length; i++) {
-        source = results[i]._source;
-        if (results[i]._index == 'jdbc') {
-            row = '<tr>';
-            for (var key in source) {
-                if (first) {
-                    table.find('tr:first-child').append('<th>' + key + '</th>');
-                }
-                row += '<td>' + source[key] + '</td>';
+        var index = this.className;
+        
+        table = item.find('table');
+        table.html('');
+        table.append('<tr></tr>');
+
+        for (i = 0; i < results.length; i++) {
+            if(results[i]._index == index){
+
+                source = results[i]._source;
+                    row = '<tr>';
+                    for (var key in source) {
+                        if (first) {
+                            table.find('tr:first-child').append('<th>' + key + '</th>');
+                        }
+                        row += '<td>' + source[key] + '</td>';
+                    }
+                    row += '/<tr>';
+                    table.append(row);
+                    first = false;
             }
-            row += '/<tr>';
-            table.append(row);
-            first = false;
         }
+    
     }
 }
