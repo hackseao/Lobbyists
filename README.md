@@ -1,5 +1,7 @@
-hackaton_corruption
+Lobbyists
 ===================
+
+[Cette section est un fork d'un projet réalisé dans le cadre de Hackons la corruption 2012]
 
 Projet contre la corruption au Québec. En Django
 
